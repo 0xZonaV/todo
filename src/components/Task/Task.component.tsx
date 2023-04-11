@@ -1,22 +1,26 @@
 import {FC} from "react";
 import {TaskType} from "../../store/tasks/tasks-types";
-import {TaskContainer} from "./Task.style";
+import {TaskCardContainer, TaskCardInfo, TaskCardTitle} from "./Task.style";
+import moment from 'moment';
+import 'moment/locale/ru';
+const TaskCardComponent: FC<TaskType> = ({title, creationTime, id, priority, marks, description}) => {
+    moment.locale('ru');
+    const createdAt = moment(creationTime).fromNow();
 
-const TaskComponent: FC<TaskType> = ({title, creationTime, id, priority, marks, description}) => {
     return(
-        <TaskContainer>
-            <div>{title}</div>
-            <div>
-                Создано: {creationTime}
-            </div>
-            <div>
+        <TaskCardContainer>
+            <TaskCardTitle>{title}</TaskCardTitle>
+            <TaskCardInfo>
+                Создано: {createdAt}
+            </TaskCardInfo>
+            <TaskCardInfo>
                 Приоритет: {priority}
-            </div>
-            <div>
+            </TaskCardInfo>
+            <TaskCardInfo>
                 Отметки: {marks?.map(mark => `${mark} `)}
-            </div>
-        </TaskContainer>
+            </TaskCardInfo>
+        </TaskCardContainer>
     )
 }
 
-export default TaskComponent
+export default TaskCardComponent

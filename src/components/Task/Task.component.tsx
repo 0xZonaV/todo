@@ -9,7 +9,7 @@ const TaskCardComponent: FC<TaskType> = ({title, creationTime, id, priority, mar
 
     return(
         <TaskCardContainer>
-            <TaskCardTitle>{title}</TaskCardTitle>
+            <TaskCardTitle to={`/task/${id}`}>{title}</TaskCardTitle>
             <TaskCardInfo>
                 Создано: {createdAt}
             </TaskCardInfo>

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {Link} from "react-router-dom";
 
 export const TaskCardContainer = styled.div`
   display: flex;
@@ -11,14 +12,17 @@ export const TaskCardContainer = styled.div`
 `
 
 
-export const TaskCardTitle = styled.div`
+export const TaskCardTitle = styled(Link)`
   font-size: 20px;
   font-weight: bold;
   display: inline-block;
   margin: 10px 0;
+  text-decoration: none;
+  color: black;
   
   &:hover {
     color: #105b72c2;
+    text-decoration: none;
   }
 `
 

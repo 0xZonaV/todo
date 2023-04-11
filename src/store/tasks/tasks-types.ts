@@ -2,14 +2,16 @@ export enum TASKS_ACTION_TYPES {
     SET_TASKS= 'tasks/SET_TASKS',
 }
 
-type TaskMarks = ('research' | 'design' | 'development')[];
+export type Tag  = 'research' | 'design' | 'development';
+
+export type Priority = 'Low' | 'Normal' | 'High';
 
 export type TaskType = {
     id: number;
     creationTime: string;
     title: string;
     description: string;
-    priority: 'Low' | 'Normal' | 'High';
-    marks?: TaskMarks;
+    priority: Priority;
+    marks?: Tag[];
 
 }
